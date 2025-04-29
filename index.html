@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EVSE Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">   
+    <h1>🔌 EVSE OCPP Dashboard</h1>
+
+    <div class="status-card">
+      <p>WebSocket Status: <span id="wsStatus">Disconnected</span></p>
+      <p>Charging Status: <span id="chargingStatus">Not Charging</span></p>
+    </div>
+
+    <div class="battery-section">
+      <div class="battery-container">
+        <div class="battery-fill" id="batteryFill"></div>
+      </div>
+      <p>Battery: <span id="batteryPercent">0</span>%</p>
+    </div>
+    <div class="meter-card">
+      <p>Voltage: <span id="voltageValue">0</span> V</p>
+      <p>Current: <span id="currentValue">0</span> A</p>
+      <p>Power: <span id="powerValue">0</span> W</p>
+      <p>Energy: <span id="energyValue">0.00</span> kWh</p>
+    </div>
+
+    <div class="meter-card">
+      <p>Meter Reading: <span id="meterValue">0.00</span> kWh</p>
+    </div>
+
+    <div class="section">
+      <select id="messageType">
+        <option>Heartbeat</option>
+        <option>BootNotification</option>
+        <option>Authorize</option>
+        <option>StartTransaction</option>
+        <option>StopTransaction</option>
+      </select>
+      <input type="text" id="extraData" placeholder="ID tag / Transaction ID" />
+      <button id="connectBtn">Connect</button>
+      <button id="sendBtn">Send OCPP Action</button>
+    </div>
+
+    <div class="log-card">
+      <h3>Logs</h3>
+      <pre id="log"></pre>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
